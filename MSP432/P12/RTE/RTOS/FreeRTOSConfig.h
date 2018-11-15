@@ -86,7 +86,7 @@ to exclude the API function. */
   #define configPRIO_BITS                     __NVIC_PRIO_BITS
 #else
   /* 15 priority levels */
-  #define configPRIO_BITS                     4
+  #define configPRIO_BITS                     3
 #endif
 
 /* The lowest interrupt priority that can be used in a call to a "set priority"
