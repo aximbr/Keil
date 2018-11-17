@@ -26,7 +26,7 @@ xQueueHandle MyQ;  //fila para transferir dados de uma task para outra
 // programa principal
 int main(void){
 		
-	/* inicializa o módulo ADC0 */
+	/* inicializa o módulo ADC */
 	ADC0_Init();
 	
 	/*Inicializa módulo SPI e o módulo Nokia5110 */
@@ -99,7 +99,7 @@ void vDiplay_String_Nokia(void *pvParameters){
       LCD_set_XY(7,1);
       LCD_write_string("mV");		
 			vTaskDelayUntil(&xLastWakeTime, xDelay);
-		  //Nokia5110_Clear();
+		  
 	}
 }
 

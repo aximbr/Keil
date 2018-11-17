@@ -38,6 +38,7 @@ void ADC0_Init(void){
 	ADC_Init(ADC1, &ADC_Config);
 	ADC_Cmd(ADC1, ENABLE);
 	ADC_RegularChannelConfig(ADC1, 0, 1, ADC_SampleTime_1Cycles5);
+	
 		 
 }
 
@@ -51,7 +52,7 @@ uint16_t ADC0_In(void){
 	
 
 	ADC_SoftwareStartConvCmd(ADC1, ENABLE);	
-	result = ADC_GetConversionValue(ADC1) & 0x0FFF;                        // 2) read result
+	result = ADC_GetConversionValue(ADC1) & 0x0FFF;      //read result
   	
   return result;  
 }

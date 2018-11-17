@@ -68,18 +68,19 @@ SPI1->DR = data; // TX character
 SPI_Cmd(SPI1, DISABLE);           /* Disable the SPI (clock e CS)  */
 
 }
+
 void LCD_write_logo(unsigned const char *ptr) {
 unsigned int ctr = 0;
-while(ctr++ < 504) {
-LCD_write_byte(*ptr++,1);
-}
+   while(ctr++ < 504) {
+   LCD_write_byte(*ptr++,1);
+   }
 }
 void LCD_clear(void) {
 unsigned int i;
-LCD_write_byte(0x0c, 0);
-LCD_write_byte(0x80, 0);
-for (i=0; i<504; i++)
-LCD_write_byte(0, 1);
+   LCD_write_byte(0x0c, 0);
+   LCD_write_byte(0x80, 0);
+   for (i=0; i<504; i++)
+   LCD_write_byte(0, 1);
 }
 
 //********LCD_set_XY*****************
@@ -90,25 +91,25 @@ LCD_write_byte(0, 1);
 //         newY  new Y-position of the cursor (0<=newY<=5)
 // Outputs: none
 void LCD_set_XY(uint8_t newX, uint8_t newY){
-if((newX > 11) || (newY > 5)){        // bad input
+   if((newX > 11) || (newY > 5)){        // bad input
     return;                             // do nothing
-  }
+   }
   // multiply newX by 7 because each character is 7 columns wide
-  LCD_write_byte(0x80|newX*7,0);     // setting bit 7 updates X-position
-  LCD_write_byte(0x40|newY, 0);      // setting bit 6 updates Y-position
+   LCD_write_byte(0x80|newX*7,0);     // setting bit 7 updates X-position
+   LCD_write_byte(0x40|newY, 0);      // setting bit 6 updates Y-position
 }
 
 
 void LCD_write_char(unsigned char c) {
 unsigned char line;
 //LCD_write_byte(0x00, 1);
-for (line=0; line<5; line++)
-LCD_write_byte(ASCII[c-32][line], 1);
-LCD_write_byte(0x00, 1);
+   for (line=0; line<5; line++)
+   LCD_write_byte(ASCII[c-32][line], 1);
+   LCD_write_byte(0x00, 1);
 }
-void LCD_write_string(char *s) {
 
-while (*s) LCD_write_char(*s++);
+void LCD_write_string(char *s) {
+   while (*s) LCD_write_char(*s++);
 }
 
 //********LCD_OutUDec*****************
@@ -161,7 +162,7 @@ void LCD_OutUDec(unsigned short n){
 //---------------------------------------
 void delayMs(int n) {
 int i, j;
-for(i = 0 ; i < n; i++)
-for (j = 0; j < 8010; j++);
+   for(i = 0 ; i < n; i++)
+   for (j = 0; j < 8010; j++);
 }
 
