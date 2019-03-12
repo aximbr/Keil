@@ -1,6 +1,6 @@
 /**
-  Tarefa 11: enviar uma mensagem continuamente para um display e piscar um led quando acionado um botão 
-  todas as tarefas usando o FreeRTOS
+  Tarefa 12: Usando uma porta ADC e um potenciômetro deslizante como divisor de tensão,
+	exiba o valor lido no ADC em um Display. Use o FreeRTOS.
                                    
   Autor: José P. Leitão
   2018-10-28

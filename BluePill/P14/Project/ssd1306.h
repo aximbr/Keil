@@ -12,6 +12,9 @@
 
 #if defined(STM32F1)
 #include "stm32f10x_conf.h"
+#include "HAL_I2C.h"
+#include <stdio.h>
+
 #elif defined(STM32F4)
 #include "stm32f4xx_hal.h"
 #else
@@ -62,7 +65,7 @@
 /* ^^^ SPI config ^^^ */
 
 #if defined(SSD1306_USE_I2C)
-extern I2C_InitTypeDef SSD1306_I2C_PORT;
+extern I2C_HandleTypeDef SSD1306_I2C_PORT;
 #elif defined(SSD1306_USE_SPI)
 extern SPI_HandleTypeDef SSD1306_SPI_PORT;
 #else
