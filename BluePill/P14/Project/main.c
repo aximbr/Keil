@@ -22,10 +22,11 @@
 #include "drv-clock.h"
 #include <stdio.h>
 #include "ssd1306_tests.h"
+#include "HAL_I2C.h"
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-I2C_InitTypeDef hi2c1; 
+I2C_HandleTypeDef hi2c1; 
 GPIO_InitTypeDef GPIO_InitStruct;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,18 +69,16 @@ SysTick_Config(SystemCoreClock / 1000);
 static void My_I2C1_Init(void)
 {
 
-  //hi2c1.Instance = I2C1;
-  hi2c1.I2C_ClockSpeed = 100000*4;
-	hi2c1.I2C_Mode = I2C_Mode_I2C;
-  hi2c1.I2C_DutyCycle = I2C_DutyCycle_2;
-  hi2c1.I2C_OwnAddress1 = 0;
-	hi2c1.I2C_Ack = I2C_Ack_Disable;
-	hi2c1.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;
-  //hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-  //hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  //hi2c1.Init.OwnAddress2 = 0;
-  //hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  //hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+	
+  HAL_I2C_Init(&hi2c1);
   
-	I2C_Init(I2C1, &hi2c1);
 }

@@ -1,4 +1,5 @@
 #include "ssd1306.h"
+#include "HAL_I2C.h"
 
 uint32_t TimingDelay;
 
