@@ -109,6 +109,7 @@ void ssd1306_SetCursor(uint8_t x, uint8_t y);
 void ssd1306_DrawBox(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2);
 void ssd1306_DrawHLine(uint8_t x1, uint8_t x2, uint8_t y);
 
+
 // Low-level procedures
 void ssd1306_Reset(void);
 void ssd1306_WriteCommand(uint8_t byte);
