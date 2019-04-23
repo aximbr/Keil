@@ -70,7 +70,7 @@ int main(void)
   {
     ssd1306_Fill(Black);
 		for(int j=0; j<63; j +=10){
-		   ssd1306_SetCursor(2, j);
+		   ssd1306_SetCursor(23, j);
        ssd1306_WriteString("Hello World!", Font_7x10, White);
        ssd1306_UpdateScreen();
 		   }
