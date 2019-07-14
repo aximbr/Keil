@@ -9,6 +9,7 @@
 
   <project>
     <PathAndName>.\T1\T1.uvprojx</PathAndName>
+    <NodeIsActive>1</NodeIsActive>
     <NodeIsExpanded>1</NodeIsExpanded>
   </project>
 
@@ -22,7 +23,6 @@
 
   <project>
     <PathAndName>.\T4\T4.uvprojx</PathAndName>
-    <NodeIsActive>1</NodeIsActive>
   </project>
 
 </ProjectWorkspace>
